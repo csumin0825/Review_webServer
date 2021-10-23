@@ -2,17 +2,18 @@
 <html>
 <head>
     <title>웹서버프로그래밍 week3 TEST</title>
-    ** 화살표 함수 **
+    ** 객체 대괄호 표기법  **
 </head>
 <body>
     <script>
-        let sum = (a, b) => a + b;
-        /*
-        let sum = function(a,b){
-            return a+b;
+        let user = {
+            name : "John",
+            age : 30
         };
-        */
-       alert(sum(1,2));
+
+        let key = prompt("사용자의 어떤 정보를 얻고 싶으신가요?","name");
+
+        alert(user[key]);
 
     </script>
     
