@@ -2,24 +2,17 @@
 <html>
 <head>
     <title>웹서버프로그래밍 week3 TEST</title>
-    ** 함수 표현식 **
+    ** 화살표 함수 **
 </head>
 <body>
     <script>
-        let age = prompt("나이를 알려주세요.",18);
-        let welcome;
-        
-        if(age <18){
-            welcome = function(){
-                alert("안녕!");
-            }; //표현식에는 세미콜론 사용
-        }else {
-            welcome = function(){
-                alert("안녕하세요.");
-            };
-        }
-
-        welcome();
+        let sum = (a, b) => a + b;
+        /*
+        let sum = function(a,b){
+            return a+b;
+        };
+        */
+       alert(sum(1,2));
 
     </script>
     
