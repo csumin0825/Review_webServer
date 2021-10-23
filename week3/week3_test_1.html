@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>웹서버프로그래밍 week3 TEST</title>
-    ** 객체 대괄호 표기법  **
+    ** 객체  in 연산자  **
 </head>
 <body>
     <script>
@@ -11,9 +11,10 @@
             age : 30
         };
 
-        let key = prompt("사용자의 어떤 정보를 얻고 싶으신가요?","name");
+        alert(user.height === undefined);
+        alert(user.name === undefined);
 
-        alert(user[key]);
+        alert("age" in user);
 
     </script>
     
