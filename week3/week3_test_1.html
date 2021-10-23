@@ -2,20 +2,24 @@
 <html>
 <head>
     <title>웹서버프로그래밍 week3 TEST</title>
-    ** 콜백 함수 **
+    ** 함수 표현식 **
 </head>
 <body>
     <script>
-        function ask(question, yes, no){
-            if(confirm(question)) yes() //확인을 누르면 
-            else no(); //취소를 누르면
+        let age = prompt("나이를 알려주세요.",18);
+        let welcome;
+        
+        if(age <18){
+            welcome = function(){
+                alert("안녕!");
+            }; //표현식에는 세미콜론 사용
+        }else {
+            welcome = function(){
+                alert("안녕하세요.");
+            };
         }
 
-        ask("동의하십니까?",
-            function() { alert("동의하셨습니다."); },
-            function() { alert("취소 버튼을 누르셨습니다."); }
-        );
-
+        welcome();
 
     </script>
     
