@@ -15,3 +15,6 @@ let user = {
   - alert (user.name);  //프로퍼티 값 읽기
   - user.isAdmin = true;  //프로퍼티 추가
   - delete user.age;  // 프로퍼티 삭제
+
+
+정수 프로퍼티 => 자동으로 정렬(문자열->정수, 정수->문자열로 바뀌어도 값이 변하지 않는다.)
