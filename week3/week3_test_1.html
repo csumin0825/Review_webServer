@@ -2,19 +2,23 @@
 <html>
 <head>
     <title>웹서버프로그래밍 week3 TEST</title>
-    ** 객체  in 연산자  **
+    ** 객체 중첩 객체 복사 : 깊은 복사  **
 </head>
 <body>
     <script>
         let user = {
             name : "John",
-            age : 30
+            sizes: {
+                height : 182,
+                width : 50
+            }
         };
+        let clone = Object.assign({}, user);
 
-        alert(user.height === undefined);
-        alert(user.name === undefined);
+        alert (user.sizes === clone.sizes);
 
-        alert("age" in user);
+        user.sizes.width++;
+        alert(clone.sizes.width);
     </script>
     
 </body>
