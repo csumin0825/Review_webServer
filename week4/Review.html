@@ -2,15 +2,17 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** getOwnPropertyDescriptor 메서드 **
+    ** defineProperty 메서드 **
 </head>
 <body>
     <script>
-        let user = {
-            name : "John"
-        };
+        let user = {};
 
-        let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
+        Object.defineProperty(user, "name", {
+            value : "John"
+        });
+
+        let descriptor = Object.getOwnPropertyDescriptor(user, 'name')
 
         alert(JSON.stringify(descriptor, null, 2));
     </script>
