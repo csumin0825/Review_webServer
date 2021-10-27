@@ -2,19 +2,21 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** defineProperty 메서드 **
+    ** writable 메서드 **
 </head>
 <body>
-    <script>
-        let user = {};
+    <script> 
+        let user = {
+            name : "John"
+        };
 
-        Object.defineProperty(user, "name", {
-            value : "John"
+        Object.defineProperty(user, "name",{
+            writable : false
         });
 
-        let descriptor = Object.getOwnPropertyDescriptor(user, 'name')
-
-        alert(JSON.stringify(descriptor, null, 2));
+        user.name = "Pete"
+        
+        alert(user.name); //값이 변경되지 않음. (엄격 모드 : 에러, 비엄격 모드 : 무시)
     </script>
     
 </body>
