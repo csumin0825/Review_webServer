@@ -2,30 +2,16 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** writable, enumerable 메서드 **
+    ** Object.getOwnPropertyDescriptors 메서드 **
 </head>
 <body>
     <script> 
-        let user = {
-            name : "John",
-            height : 191,
-            toString(){ //표시가 되지않는다.
-                return this.name
-            }
-        };
+        let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
 
-        Object.defineProperty(user, "name",{ //추가하면 값이 변경되지 않음
-            writable : false
-        });
-
-        user.name = "Pete";
-        alert(user.name); //(엄격 모드 : 에러, 비엄격 모드 : 무시) 원래 결과값 : Pete -> 추가 후 결과값 : John
-
-        Object.defineProperty(user, "toString",{ //추가하면 toString이 나오지않음
-            enumerable : false
-        });
-
-        for(let key in user) alert(key); //원래 결과값 : name, height, toString -> 추가 후 결과값 : name, height
+        for(let key in user){
+            clone[key] = user[key]
+        }
+        
     </script>
     
 </body>
