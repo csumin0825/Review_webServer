@@ -2,26 +2,26 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** setter 메서드 **
+    ** 접근자 프로퍼티 설명자 **
 </head>
 <body>
     <script> 
-        let user = {
-            name : "John",
-            surname : "Smith",
+        function User(name, birthday){
+            this.name = name;
+            this.birthday = birthday;
 
-            get fullName(){
-                return `${this.name} ${this.surname}`
-            },
+            Object.defineProperty(this, "age", { //age 프로퍼티를 삭제하지 않고도 수정하여 사용
+                get(){
+                    let todayYear = new Date().getFullYear();
+                    return todayYear - this.birthday.getFullYear();
+                }
+            }); 
+        }
 
-            set fullName(value){
-                [this.name, this.surname] = value.split(" ");
-            }
-        };
-        
-        alert(user.fullName);;
+        let john = new User("John", new Date(2000, 8, 25));
 
-        for(let key in user) alert(ket); //접근자 프로퍼티 = 가상의 프로퍼티 / get(set)과 value 동시 사용불가
+        alert(john.birthday);
+        alert(john.age);
     </script>
     
 </body>
