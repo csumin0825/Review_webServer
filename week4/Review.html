@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** getter 메서드 **
+    ** setter 메서드 **
 </head>
 <body>
     <script> 
@@ -12,13 +12,16 @@
 
             get fullName(){
                 return `${this.name} ${this.surname}`
+            },
+
+            set fullName(value){
+                [this.name, this.surname] = value.split(" ");
             }
         };
         
-        alert(user.fullName);
+        alert(user.fullName);;
 
-        
-        
+        for(let key in user) alert(ket); //접근자 프로퍼티 = 가상의 프로퍼티 / get(set)과 value 동시 사용불가
     </script>
     
 </body>
