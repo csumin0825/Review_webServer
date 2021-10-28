@@ -2,15 +2,22 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** Object.getOwnPropertyDescriptors 메서드 **
+    ** getter 메서드 **
 </head>
 <body>
     <script> 
-        let clone = Object.defineProperties({}, Object.getOwnPropertyDescriptors(obj));
+        let user = {
+            name : "John",
+            surname : "Smith",
 
-        for(let key in user){
-            clone[key] = user[key]
-        }
+            get fullName(){
+                return `${this.name} ${this.surname}`
+            }
+        };
+        
+        alert(user.fullName);
+
+        
         
     </script>
     
