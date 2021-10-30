@@ -2,33 +2,22 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 프로토타입 상속 설명자 **
+    ** 프로토타입 상속_열거 **
 </head>
 <body>
     <script> 
         let animal = {
-            eats : true,
-            walk(){
-                alert("동물이 걷습니다.");
-            }
+            eats: true
         };
 
         let rabbit = {
-            jumps : true,
-            __proto__ : animal
+            jumps: true,
+            __proto__: animal
         };
 
-        /*rabbit.__proto__ = animal; 
-        /(*) rabbit이라는 객체가 animal의 프로퍼티를 상속받음 
-        /animal이 rabbit의 프로토타입
-        */
+        alert(Object.keys(rabbit)); //jumps
 
-        alert(rabbit.eats); /*true 
-        /rabbit eats프포퍼티를 가지고 있지 않기때문에 animal에서 찾아서 출력한다. 
-        /rabbit.eats => 상속 프로퍼티
-        */
-        alert(rabbit.jumps); //true
-        rabbit.walk();
+        for(let prop in rabbit) alert(prop); //jumps, eats
     </script>
     
 </body>
