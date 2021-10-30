@@ -2,23 +2,39 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 클래스 필드_3 **
+    ** extends **
 </head>
 <body>
     <script>
-        class Button{
-            constructor(value){
-                this.value = value;
+        class Animal{
+            constructor(name) {
+                this.speed = 0;
+                this.name = name;
             }
-
-            click = () => {  // 1. 각 버튼 객체마다 독립적인 객체를 만들고 함수의 this를 객체에 바인딩함.
-                alert(this.value);  // losing this
+            run(speed){
+                this.speed = speed;
+                alert(`${this.name}은/는 속도 ${this.speed}로 달립니다.`);
+            }
+            stop(){
+                this.speed = 0;
+                alert(`${this.name}이/가 멈췄습니다.`);
             }
         }
-        
-        let button = new Button("Hello");
 
-        setTimeout(button.click, 1000);
+        let animal = new Animal("동물");
+        
+        class Rabbit extends Animal{
+            hide(){
+                alert(`${this.name}이/가 숨었습니다.`);
+            }
+        }
+
+        let rabbit = new Rabbit("흰 토끼");
+
+        rabbit.run(5);
+        rabbit.hide();
+
+        // Rabbit.prototype을 Animal.prototype으로 설정
     </script>
 </body>
 </html>
