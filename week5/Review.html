@@ -2,22 +2,16 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 클래스 필드 **
+    ** 클래스 필드_2 **
 </head>
 <body>
     <script>
         class User{
-            name = "John";  // User.property에는 없는 클래스 필드
-            alert(name);
-
-            sayHi(){
-                alert(`Hello, ${this.name}!`);
-            }
+            name = prompt("이름을 입력해주세요.", "보라");
         }
-        new User().sayHi();
 
-        alert(User.name);
-
+        let user = new User();
+        console.log(user.name);
     </script>
 </body>
 </html>
