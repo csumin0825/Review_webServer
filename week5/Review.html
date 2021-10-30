@@ -2,24 +2,24 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 클래스 기본 문법 **
+    ** 클래스 = 함수 **
 </head>
 <body>
     <script>
-        class User {
-            constructor(name){
-                this.name = name;
-            }
-
-            sayHi(){
-                alert(this.name);
-            }
+        class User{  // User라는 이름의 새로운 함수 생성
+            constructor(name) { this.name = name; }  // 생성자
+            sayHi() { alert(this.name); }  // User.prototype에 저장
         }
 
-        // 사용법
+        // User가 함수라는 증거
+        alert(typeof User);  // function
         let user = new User("John");
-        user.sayHi();
 
+        alert(User.prototype.sayHi);  // sayHi() { alert(this.name); }
+
+        alert(User === User.prototype.constructor);  // ture
+
+        alert(Object.getOwnPropertyNames(User.prototype));  // constructor, sayHi
     </script>
 </body>
 </html>
