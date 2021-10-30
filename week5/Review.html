@@ -2,7 +2,7 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** extends **
+    ** extends_super키워드 **
 </head>
 <body>
     <script>
@@ -27,12 +27,17 @@
             hide(){
                 alert(`${this.name}이/가 숨었습니다.`);
             }
+
+            stop(){
+                super.stop();
+                this.hide();
+            }
         }
 
         let rabbit = new Rabbit("흰 토끼");
 
         rabbit.run(5);
-        rabbit.hide();
+        rabbit.stop();
 
         // Rabbit.prototype을 Animal.prototype으로 설정
     </script>
