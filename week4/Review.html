@@ -2,11 +2,11 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 프로토타입 상속_열거 **
+    ** 프로토타입 상속_hsaOwnProperty **
 </head>
 <body>
     <script> 
-        let animal = {
+        let animal = {  //Object.property를 상속받음 -> animal이 객체 리터럴로 선언되었기 때문에
             eats: true
         };
 
@@ -15,10 +15,15 @@
             __proto__: animal
         };
 
-        alert(Object.keys(rabbit)); //jumps
+        for(let prop in rabbit){
+            let isOwn = rabbit.hasOwnProperty(prop);
 
-        for(let prop in rabbit) alert(prop); //jumps, eats
+            if (isOwn){
+                alert(`객체 자신의 프로퍼티: ${prop}`);  //true일 경우
+            }else{
+                alert(`상속 프로퍼티: ${prop}`);  //false일 경우
+            }
+        }
     </script>
-    
 </body>
 </html>
