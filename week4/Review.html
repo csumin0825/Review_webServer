@@ -2,17 +2,25 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 네이티브 프로토타입_2_상속관계 확인 **
+    ** 모던 메서드 **
 </head>
 <body>
     <script>
-        let arr = [1,2,3];
+        let animal = {
+            eats: true
+        };
 
-        alert(arr.__proto__ === Array.prototype);  // true
+        // 프로토타입이 animal인 새로운 객체를 생성
+        let rabbit = Object.create(animal);
 
-        alert(arr.__proto__.__proto__ === Object.prototype);  // true
+        alert(rabbit.eats);  // true
 
-        alert(arr.__proto__.__proto__.__proto__);  // null => Object.prototype의 prototype은 없다.
+        alert(Object.getPrototypeOf(rabbit) === animal);  // true
+        // rabbit의 숨김 프로퍼티가 animal인지 확인
+
+        Object.setPrototypeOf(rabbit, {});  // true
+        // rabbit의 prototype을 null로, 빈객체로 반환
+
 
     </script>
 </body>
