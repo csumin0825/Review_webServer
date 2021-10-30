@@ -2,16 +2,23 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 클래스 필드_2 **
+    ** 클래스 필드_3 **
 </head>
 <body>
     <script>
-        class User{
-            name = prompt("이름을 입력해주세요.", "보라");
-        }
+        class Button{
+            constructor(value){
+                this.value = value;
+            }
 
-        let user = new User();
-        console.log(user.name);
+            click = () => {  // 1. 각 버튼 객체마다 독립적인 객체를 만들고 함수의 this를 객체에 바인딩함.
+                alert(this.value);  // losing this
+            }
+        }
+        
+        let button = new Button("Hello");
+
+        setTimeout(button.click, 1000);
     </script>
 </body>
 </html>
