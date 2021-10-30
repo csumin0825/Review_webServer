@@ -2,17 +2,18 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 네이티브 프로토타입_1_Object.Prototype **
+    ** 네이티브 프로토타입_2_상속관계 확인 **
 </head>
 <body>
     <script>
-        let obj = {};  // let obj = new Object();
-        alert(obj);  // [object Object]
+        let arr = [1,2,3];
 
-        alert(obj.__proto__ === Object.prototype);  // true
-        
-        alert(obj.toString === obj.__proto__.toString);  // true
-        alert(obj.toString === Object.prototype.toString);  // true
+        alert(arr.__proto__ === Array.prototype);  // true
+
+        alert(arr.__proto__.__proto__ === Object.prototype);  // true
+
+        alert(arr.__proto__.__proto__.__proto__);  // null => Object.prototype의 prototype은 없다.
+
     </script>
 </body>
 </html>
