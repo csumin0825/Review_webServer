@@ -2,22 +2,33 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 클래스 표현식_2_동적 **
+    ** getter와 setter **
 </head>
 <body>
     <script>
-        function makeClass(phrase){
-            // 클래스를 선언하고 이를 반환함
-            return class{
-                sayHi(){
-                    alert(phrase);
-                };
-            };
+        class User{
+            constructor(name){
+                // setter를 활성화
+                this.name = name;
+            }
+
+            get name(){
+                return this._name;
+            }
+
+            set name(value){
+                if  (value.length < 4){
+                    alert("이름이 너무 짧습니다.");
+                    return;
+                }
+                this._name = value;
+            }
         }
 
-        // 새로운 클래스를 만듦
-        let User = makeClass("Hello");  
-        new User().sayHi();  // Hello
+        let user = new User("John");
+        alert(user.name);  // John
+
+        user = new User("");
 
     </script>
 </body>
