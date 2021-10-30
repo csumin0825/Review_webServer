@@ -2,26 +2,33 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 접근자 프로퍼티 설명자 **
+    ** 프로토타입 상속 설명자 **
 </head>
 <body>
     <script> 
-        function User(name, birthday){
-            this.name = name;
-            this.birthday = birthday;
+        let animal = {
+            eats : true,
+            walk(){
+                alert("동물이 걷습니다.");
+            }
+        };
 
-            Object.defineProperty(this, "age", { //age 프로퍼티를 삭제하지 않고도 수정하여 사용
-                get(){
-                    let todayYear = new Date().getFullYear();
-                    return todayYear - this.birthday.getFullYear();
-                }
-            }); 
-        }
+        let rabbit = {
+            jumps : true,
+            __proto__ : animal
+        };
 
-        let john = new User("John", new Date(2000, 8, 25));
+        /*rabbit.__proto__ = animal; 
+        /(*) rabbit이라는 객체가 animal의 프로퍼티를 상속받음 
+        /animal이 rabbit의 프로토타입
+        */
 
-        alert(john.birthday);
-        alert(john.age);
+        alert(rabbit.eats); /*true 
+        /rabbit eats프포퍼티를 가지고 있지 않기때문에 animal에서 찾아서 출력한다. 
+        /rabbit.eats => 상속 프로퍼티
+        */
+        alert(rabbit.jumps); //true
+        rabbit.walk();
     </script>
     
 </body>
