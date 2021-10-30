@@ -2,33 +2,21 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** getter와 setter **
+    ** 클래스 필드 **
 </head>
 <body>
     <script>
         class User{
-            constructor(name){
-                // setter를 활성화
-                this.name = name;
-            }
+            name = "John";  // User.property에는 없는 클래스 필드
+            alert(name);
 
-            get name(){
-                return this._name;
-            }
-
-            set name(value){
-                if  (value.length < 4){
-                    alert("이름이 너무 짧습니다.");
-                    return;
-                }
-                this._name = value;
+            sayHi(){
+                alert(`Hello, ${this.name}!`);
             }
         }
+        new User().sayHi();
 
-        let user = new User("John");
-        alert(user.name);  // John
-
-        user = new User("");
+        alert(User.name);
 
     </script>
 </body>
