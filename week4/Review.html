@@ -2,28 +2,38 @@
 <html>
 <head>
     <title>웹서버 week4</title>
-    ** 프로토타입 상속_hsaOwnProperty **
+    ** 함수의 prototype 프로퍼티_생성자함수 **
 </head>
 <body>
-    <script> 
-        let animal = {  //Object.property를 상속받음 -> animal이 객체 리터럴로 선언되었기 때문에
-            eats: true
-        };
-
-        let rabbit = {
-            jumps: true,
-            __proto__: animal
-        };
-
-        for(let prop in rabbit){
-            let isOwn = rabbit.hasOwnProperty(prop);
-
-            if (isOwn){
-                alert(`객체 자신의 프로퍼티: ${prop}`);  //true일 경우
-            }else{
-                alert(`상속 프로퍼티: ${prop}`);  //false일 경우
-            }
+    <script>
+        function Cat(){
+            // 기본 prototype:      // 기본 프로퍼티
+            // Rabbit.prototype = {constructor: Rabbit}      // constructor라는 프로퍼티 하나만 가지고 있는
+            alert("cat: " + String(Cat.prototype.constructor == Cat)); // true
         }
+        let cat = new Cat();
+
+
+
+        let animal = {
+            eats: true 
+        };
+
+        function Rabbit(name){
+            this.name=name;
+        };
+
+        Rabbit.prototype = animal; /* rabbit의 prototype을 객체로 선언함
+        함수의 프로토타입이 객체가 되면, prototype을 사용해서 새롭게 생성된 객체의 숨김 프로퍼티를 설정하게 된다.
+        */
+
+        let rabbit = new Rabbit("White Rabbit"); /* rabbit.__proto__ == animal
+        new(생성자함수), Rabbit(함수)를 이용하여 만든 새로운 객체의 프로토타입을 animal로 설정하는 것이다.
+        = 함수의 프로토타입(숨김 프로퍼티가 아니고 일반 프로퍼티)이 animal이 되는 것이다.  
+        rabbit이 animal을 상속받음
+        */
+
+        alert("rabbit: "+ String(rabbit.eats)); //true
     </script>
 </body>
 </html>
