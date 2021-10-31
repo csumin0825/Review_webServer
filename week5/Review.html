@@ -2,45 +2,28 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** 생성자 오버라이딩_1 **
+    ** 생성자 오버라이딩_3_메서드 오버라이딩 **
 </head>
 <body>
     <script>
         class Animal{
-            constructor(name) {
-                this.speed = 0;
-                this.name = name;
+            showName(){
+                alert('animal');
             }
-            run(speed){
-                this.speed = speed;
-                alert(`${this.name}은/는 속도 ${this.speed}로 달립니다.`);
-            }
-            stop(){
-                this.speed = 0;
-                alert(`${this.name}이/가 멈췄습니다.`);
+
+            constructor(){
+                this.showName();
             }
         }
 
-        let animal = new Animal("동물");
-        
         class Rabbit extends Animal{
-            hide(){
-                alert(`${this.name}이/가 숨었습니다.`);
-            }
-
-            stop(){
-                super.stop();
-                this.hide();
+            showName(){  // 필드(메서드) 오버라이딩 
+                alert('rabbit'); 
             }
         }
 
-        let rabbit = new Rabbit("흰 토끼");  // Rabbit은 constructor가 없어서 자동으로 비어있는 consturctor를 만듬
-
-        rabbit.run(5);
-        rabbit.stop();
-        alert(rabbit.name);
-
-        // Rabbit.prototype을 Animal.prototype으로 설정
+        new Animal();  // animal
+        new Rabbit();  // animal / 부모 메서드 호출
     </script>
 </body>
 </html>
