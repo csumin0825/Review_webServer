@@ -2,7 +2,7 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    ** 정적 메서드_날짜비교**
+    ** 정적 메서드_팩토리메서드**
 </head>
 <body>
     <script>
@@ -12,20 +12,13 @@
                 this.date = date;
             }
 
-            static compare(articleA, articleB){
-                return articleA.date - articleB.date;
+            static createTodays(){
+                return new this("Today's digest", new Date());
             }
         }
+        let article = Article.createTodays();
 
-        //사용법
-        let articles= [
-            new Article("HTML", new Date(2019,1,1)),
-            new Article("CSS", new Date(2019,0,1)),
-            new Article("JAVAScript", new Date(2019,11,1))
-        ];
-
-    articles.sort(Article.compare);
-    alert(articles[0].title);  // CSS
+        alert(article.title);
     </script>
 </body>
 </html>
