@@ -2,7 +2,7 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    ** protected **
+    ** 읽기 전용 **
 </head>
 <body>
     <script>
@@ -19,15 +19,16 @@
             }
 
             constructor(power){
-                this._power = power;
+                return this._power;
             }
         }
 
         // 커피 머신 생성
         let coffeeMachine = new CoffeeMachine(100);
 
-        // 물 추가
-        coffeeMachine.waterAmount = -10;
+        alert(`전력량이 ${coffeeMachine.power}인 커피머신을 만듭니다.`); // 전력량이 100인 커피머신을 만듭니다.
+
+        coffeeMachine.power = 25; // Error (setter 없음)
     </script>
 </body>
 </html>
