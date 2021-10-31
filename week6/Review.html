@@ -2,23 +2,32 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    ** 정적 메서드_팩토리메서드**
+    ** protected **
 </head>
 <body>
     <script>
-        class Article{
-            constructor(title, date){
-                this.title = title;
-                this.date = date;
+        class CoffeeMachine{
+            _waterAmount = 0;
+
+            set waterAmount(value){
+                if(value < 0) throw new Error("물의 양은 음수가 될 수 없습니다.");
+                this._waterAmount = value;
             }
 
-            static createTodays(){
-                return new this("Today's digest", new Date());
+            get waterAmount(){
+                return this._waterAmount;
+            }
+
+            constructor(power){
+                this._power = power;
             }
         }
-        let article = Article.createTodays();
 
-        alert(article.title);
+        // 커피 머신 생성
+        let coffeeMachine = new CoffeeMachine(100);
+
+        // 물 추가
+        coffeeMachine.waterAmount = -10;
     </script>
 </body>
 </html>
