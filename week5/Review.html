@@ -2,7 +2,7 @@
 <html >
 <head>
     <title>웹서버 week5</title>
-    ** extends_super키워드 **
+    ** 생성자 오버라이딩_1 **
 </head>
 <body>
     <script>
@@ -34,10 +34,11 @@
             }
         }
 
-        let rabbit = new Rabbit("흰 토끼");
+        let rabbit = new Rabbit("흰 토끼");  // Rabbit은 constructor가 없어서 자동으로 비어있는 consturctor를 만듬
 
         rabbit.run(5);
         rabbit.stop();
+        alert(rabbit.name);
 
         // Rabbit.prototype을 Animal.prototype으로 설정
     </script>
