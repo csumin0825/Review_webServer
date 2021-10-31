@@ -2,11 +2,22 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    **  **
+    ** 정적 메서드_기본형**
 </head>
 <body>
     <script>
+        class User{
+            static staticMethod(){
+                alert(this === User);
+            }
+        }
+        User.staticMethod();
 
+        class User_{}
+        User_.staticMethod = function(){
+            alert(this === User_);
+        };
+        User_.staticMethod();
     </script>
 </body>
 </html>
