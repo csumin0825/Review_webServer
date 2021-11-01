@@ -2,33 +2,25 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    ** try'''catch_JSON.parse **
+    ** 에러 핸들링_throw **
 </head>
 <body>
-    <script>
-        let json = '{"name":"John", "age": 30}'; // 서버로부터 전달받은 데이터
-
-        let user = JSON.parse(json); // 전달받은 문자열을 자바스크립트 객체로 변환
-
-        // 문자열 형태로 전달받은 user가 프로퍼티를 가진 객체가 됨
-        alert( user.name ); // John
-        alert( user.age );  // 30
-
-        alert('-------------------------------------');
-
-        let json_ = "{ bad json }";
+    <script> 
+        let json = '{ "age": 30 }'; // 불완전한 데이터
 
         try {
 
-            let user = JSON.parse(json_); // <-- 여기서 에러가 발생하므로
-            alert( user.name ); // 이 코드는 동작하지 않습니다.
+        let user = JSON.parse(json); // <-- 에러 없음
 
-        } catch (e) {
-            // 에러가 발생하면 제어 흐름이 catch 문으로 넘어옵니다.
-            alert( "데이터에 에러가 있어 재요청을 시도합니다." );
-            alert( e.name );  // SyntaxError
-            alert( e.message );  // Unexpected token b in JSON at position 2
-        }       
+        if (!user.name) {
+            throw new SyntaxError("불완전한 데이터: 이름 없음"); // (*)
+        }
+
+        alert( user.name );
+
+        } catch(e) {
+            alert( "JSON Error: " + e.message ); // JSON Error: 불완전한 데이터: 이름 없음
+        }
     </script>
 </body>
 </html>
