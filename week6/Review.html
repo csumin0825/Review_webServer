@@ -2,15 +2,19 @@
 <html >
 <head>
     <title>웹서버 week6</title>
-    ** instanceof **
+    ** 에러 핸들링_try'''catch_기본 문법 **
 </head>
 <body>
     <script>
-        class Rabbit {}
-        let rabbit = new Rabbit();
+        try {
+            alert('try 블록 시작');
 
-        // rabbit이 클래스 Rabbit의 객체인가요?
-        alert( rabbit instanceof Rabbit ); // true      
+            lalala;  // 에러 발생
+
+            alert('try 블록 끝(절대 도달하지 않음');
+        } catch(err){
+            alert('에러가 발생했ㅅㅂ니다.!');  // 실행
+        }
     </script>
 </body>
 </html>
