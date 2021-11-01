@@ -2,38 +2,16 @@
 <html>
 <head>
     <title>웹서버 week7</title>
-    ** showCircle_콜백예제 **
-    <meta charset="utf-8">
-    <style>
-        .circle{
-            transition-property: width, height, margin-left, margin-top;
-            transition-duration: 2s;
-            position: fixed;
-            transform: translateX(-50%) translateY(-50%);
-            background-color: red;
-            border-radius: 50%;
-        }
-    </style>
+    ** fullfilled promise **
 </head>
 <body>
-    <button oneclick="showCircle(150, 150, 100)">
-        showCircle(150, 150, 100)
-    </button>
     <script>
-        function showCircle(cx, cy, radius){
-            let div = document.createElement('div');
-            div.style.width = 0;
-            div.style.height = 0;
-            div.style.left = cx + 'px';
-            div.style.top = cy + 'px';
-            div.className = 'circle';
-            document.body.append(div);
+        let promise = new Promise(function(resolve, reject) {
+            // 프라미스가 만들어지면 executor 함수는 자동으로 실행됩니다.
 
-            setTimeout(() => {
-                div.style.width = radius * 2 + 'px';
-                div.style.height = radius * 2 + 'px';
-            }, 0);
-        }
+             // 1초 뒤에 일이 성공적으로 끝났다는 신호가 전달되면서 result는 'done'이 됩니다.
+            setTimeout(() => resolve("done"), 1000);
+        });
     </script>
 </body>
 </html>
