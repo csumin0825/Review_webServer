@@ -1,17 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>웹서버 week7</title>
-    ** catch **
+    ** 프라미스 반환 **
 </head>
+
 <body>
     <script>
-        let promise = new Promise((resolve, reject) => {
-            setTimeout(() => reject(new Error("에러 발생!")), 1000);
-        });
+        new Promise(function (resolve, reject) {
 
-        // .catch(f)는 promise.then(null, f)과 동일하게 작동합니다
-        promise.catch(alert); // 1초 뒤 "Error: 에러 발생!" 출력
+            setTimeout(() => resolve(1), 1000);  // 1초
+
+        }).then(function (result) {
+
+            alert(result); // 1
+
+            return new Promise((resolve, reject) => { // (*)
+                setTimeout(() => resolve(result * 2), 1000);
+            });
+
+        }).then(function (result) { // (**)
+
+            alert(result); // 2
+
+            return new Promise((resolve, reject) => {
+                setTimeout(() => resolve(result * 2), 1000);
+            });
+
+        }).then(function (result) {
+
+            alert(result); // 4
+
+        });
     </script>
 </body>
+
 </html>
