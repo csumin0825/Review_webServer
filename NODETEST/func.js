@@ -7,4 +7,5 @@ function checkOddOrEven(num){
     return even;
 }
 
-module.exports = checkOddOrEven;
+module.exports = checkOddOrEven;  // 한 가지만 모듈로 만들고 싶을 때
+//module.exports !== exports === {}
