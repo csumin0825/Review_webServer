@@ -1,0 +1,14 @@
+{
+  "name": "notest1",
+  "version": "1.0.0",
+  "description": "node test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "testnode"
+  },
+  "author": "choi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1" 
+  }
+}

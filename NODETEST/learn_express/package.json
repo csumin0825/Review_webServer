@@ -1,0 +1,15 @@
+{
+  "name": "learn-express",
+  "version": "0.0.1",
+  "description": "Express 배우기",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
